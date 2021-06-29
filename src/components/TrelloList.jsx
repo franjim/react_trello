@@ -4,7 +4,6 @@ import ListTitle from "./ListTitle";
 import TrelloCard from "./TrelloCard";
 
 const TrelloList = ({ list }) => {
-    console.log(list);
     const classes = useStyle();
     return (
         <Paper className={classes.root}>

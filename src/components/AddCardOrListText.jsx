@@ -10,13 +10,15 @@ const AddCardOrListText = ({ type, setOpen, listId }) => {
     const { addCard, addList } = useContext(contextAPI)
 
     const handleAddCardOrList = () => {
-        if (type === "card") {
-            addCard(title, listId)
-        } else {
-            addList(title)
+        if (title.length > 0) {
+            if (type === "card") {
+                addCard(title, listId)
+            } else {
+                addList(title)
+            }
+            setTitle("")
+            setOpen(false)
         }
-        setTitle("")
-        setOpen(false)
     }
 
     return (
@@ -24,8 +26,7 @@ const AddCardOrListText = ({ type, setOpen, listId }) => {
             <Paper className={classes.card}>
                 <InputBase
                     multiline
-                    value={title}
-                    onBlur={() => setOpen(false)}
+                    value={title}                    
                     onChange={e => setTitle(e.target.value)}
                     placeholder={
                         type === "card" ?
